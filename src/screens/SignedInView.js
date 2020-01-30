@@ -7,8 +7,8 @@ import CreateMatchForm from '../Components/CreateMatchForm';
 const SignedInView = () => {
     const {createMatch} = useContext(Context);
     return (
-        <CreateMatchForm onSubmit={(title) => {
-            createMatch(title);
+        <CreateMatchForm onSubmit={(match) => {
+            createMatch(match);
         }}/>
 )};
 

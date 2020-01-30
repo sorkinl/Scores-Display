@@ -20,6 +20,14 @@ const CreateMatchForm = ({ onSubmit }) => {
 
   /*
   Add an image of a player as a prop when styling
+  TODO: Leo - I have 2 working components here and we can add their props into onSubmit as destructured object.
+  But for know coach will be able to add unlimited amount of matches, because I don't have an ID.
+  We have a choice to add ID to each player, that way more than one player with same ID cannot exist. Or we 
+  can add id to a separate match component which will make more sense, but I have no idea
+  how that will work.
+  We could possibly add 2 players to Match component and then make a callback function to OnSubmit to 
+  get the props from the players. Then pass an ID with the Match component to flatlist. I think that's the 
+  best way.
   */ 
   return (
     <View>
@@ -44,7 +52,7 @@ const CreateMatchForm = ({ onSubmit }) => {
         textInput={text => setName1(text)}
       />
 
-      <Button title={"Save Post"} onPress={() => onSubmit(name1)} />
+      <Button title={"Save Post"} onPress={() => onSubmit({name,name1})} />
     </View>
   );
 };

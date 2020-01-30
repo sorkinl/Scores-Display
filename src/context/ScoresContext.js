@@ -11,8 +11,8 @@ const scoresReducer = (state, action) => {
 }
 
 const createMatch = dispatch => {
-    return (title) => {
-        dispatch({type: 'create_match',payload: {title}})
+    return (match) => {
+        dispatch({type: 'create_match',payload: match})
     }
 }
 
