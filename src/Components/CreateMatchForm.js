@@ -32,7 +32,11 @@ const CreateMatchForm = ({ onSubmit }) => {
  //d
  //d2
   return (
+   
     <View>
+      <Button title={"haha"} onPress={() => onSubmit(console.log("hi"))} />
+
+
       <Player
         games={games}
         name={name}
