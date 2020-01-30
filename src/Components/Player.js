@@ -8,6 +8,9 @@ const Player = ({name,games,sets,onIncreaseGames, onDecreaseGames,onIncreaseSets
   
     
   return (
+
+
+    
     <View>
       <Text style={styles.label}>Enter Name: </Text>
       <TextInput
@@ -16,29 +19,25 @@ const Player = ({name,games,sets,onIncreaseGames, onDecreaseGames,onIncreaseSets
         onChangeText={textInput}
       />
      {/* games */}
-      <View style= {{flexDirection:'row', marginLeft:30, justifyContent: 'space-between'}}>
+      <View style= { styles.row}>
        
        {/* Vertical Game */}
           <View>
             <Text>
               Game
             </Text>
-            <Plus.Button name="plus" style ={{
-            backgroundColor:"red", width:50, height:50
-            }} onPress={() => onIncreaseGames()} />
+            <Plus.Button name="plus" style ={ styles.plus } onPress={() => onIncreaseGames()} />
             <Text>{games}</Text>
-            <Plus.Button name="minus" onPress={() => onDecreaseGames()} />
+            <Plus.Button name="minus" style ={ styles.minus } onPress={() => onDecreaseGames()} />
           </View>
 
           <View>
             <Text>
               Set
             </Text>
-            <Plus.Button name="plus" style ={{
-            backgroundColor:"red", width:50, height:50
-            }} onPress={() => onIncreaseSets()} />
+            <Plus.Button name="plus" style ={ styles.plus } onPress={() => onIncreaseSets()} />
             <Text>{sets}</Text>
-            <Plus.Button name="minus" onPress={() => onDecreaseSets()} />
+            <Plus.Button name="minus"  style ={ styles.minus } onPress={() => onDecreaseSets()} />
           </View>
 
 
@@ -53,9 +52,15 @@ const Player = ({name,games,sets,onIncreaseGames, onDecreaseGames,onIncreaseSets
 };
 
 const styles = StyleSheet.create({
-  // gamePlus:{
-  //   color
-  // }
+  plus:{
+    backgroundColor:"red", width:50, height:50
+    },
+  minus:{
+      backgroundColor:"blue", width:50, height:50
+      },
+  row:{
+    flexDirection:'row', margin:30, justifyContent: 'space-between'
+  }
 });
 
 export default Player;
