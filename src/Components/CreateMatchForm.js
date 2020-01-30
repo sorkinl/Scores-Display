@@ -35,7 +35,7 @@ const CreateMatchForm = ({ onSubmit }) => {
   return (
    
     <View>
-      <Button title={"haha"} onPress={() => onSubmit(console.log("hi"))} />
+      <Button title={"haha"} onPress={() => console.log("hi")} />
 
 
       <Player
@@ -49,7 +49,7 @@ const CreateMatchForm = ({ onSubmit }) => {
         onDecreaseSets={() => setSets(sets>0? sets - 1: 7)}
         textInput={text => setName(text)}
       />
-      {/* <Player
+      <Player
         games={games1}
         name={name1}
         sets={sets1}
@@ -58,9 +58,9 @@ const CreateMatchForm = ({ onSubmit }) => {
         onIncreaseSets={() => setSets1(sets1 + 1)}
         onDecreaseSets={() => setSets1(sets1 - 1)}
         textInput={text => setName1(text)}
-      /> */}
+      />
 
-      <Button title={"Save Post"} onPress={() => onSubmit({name,name1})} />
+      <Button title={"Save Post"} onPress={() => onSubmit()} />
     </View>
   );
 };
