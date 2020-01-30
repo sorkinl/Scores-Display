@@ -15,16 +15,47 @@ const Player = ({name,games,sets,onIncreaseGames, onDecreaseGames,onIncreaseSets
         value={name}
         onChangeText={textInput}
       />
-      <Plus.Button name="plus" onPress={() => onIncreaseGames()} />
-      <Text>{games}</Text>
-      <Plus.Button name="minus" onPress={() => onDecreaseGames()} />
-      <Plus.Button name="plus" onPress={() => onIncreaseSets()} />
-      <Text>{sets}</Text>
-      <Plus.Button name="minus" onPress={() => onDecreaseSets()} />
+     {/* games */}
+      <View style= {{flexDirection:'row', marginLeft:30, justifyContent: 'space-between'}}>
+       
+       {/* Vertical Game */}
+          <View>
+            <Text>
+              Game
+            </Text>
+            <Plus.Button name="plus" style ={{
+            backgroundColor:"red", width:50, height:50
+            }} onPress={() => onIncreaseGames()} />
+            <Text>{games}</Text>
+            <Plus.Button name="minus" onPress={() => onDecreaseGames()} />
+          </View>
+
+          <View>
+            <Text>
+              Set
+            </Text>
+            <Plus.Button name="plus" style ={{
+            backgroundColor:"red", width:50, height:50
+            }} onPress={() => onIncreaseSets()} />
+            <Text>{sets}</Text>
+            <Plus.Button name="minus" onPress={() => onDecreaseSets()} />
+          </View>
+
+
+      </View>
+
+
+     
+      
+      
     </View>
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  // gamePlus:{
+  //   color
+  // }
+});
 
 export default Player;

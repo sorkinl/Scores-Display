@@ -30,19 +30,22 @@ const CreateMatchForm = ({ onSubmit }) => {
   get the props from the players. Then pass an ID with the Match component to flatlist. I think that's the 
   best way.
   */ 
+ //d
+ //d2
   return (
     <View>
       <Player
         games={games}
         name={name}
         sets={sets}
-        onIncreaseGames={() => setGames(games + 1)}
-        onDecreaseGames={() => setGames(games - 1)}
-        onIncreaseSets={() => setSets(sets + 1)}
-        onDecreaseSets={() => setSets(sets - 1)}
+        onIncreaseGames={() => setGames(games<7? games  + 1: 0)}
+        //added to prevent negative points
+        onDecreaseGames={() => setGames(games>0? games - 1: 7)}
+        onIncreaseSets={() => setSets(sets<7? games  + 1: 0)}
+        onDecreaseSets={() => setSets(sets>0? sets - 1: 7)}
         textInput={text => setName(text)}
       />
-      <Player
+      {/* <Player
         games={games1}
         name={name1}
         sets={sets1}
@@ -51,7 +54,7 @@ const CreateMatchForm = ({ onSubmit }) => {
         onIncreaseSets={() => setSets1(sets1 + 1)}
         onDecreaseSets={() => setSets1(sets1 - 1)}
         textInput={text => setName1(text)}
-      />
+      /> */}
 
       <Button title={"Save Post"} onPress={() => onSubmit({name,name1})} />
     </View>
