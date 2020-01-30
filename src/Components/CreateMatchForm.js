@@ -11,7 +11,7 @@ import Player from "./Player";
 
 const CreateMatchForm = ({ onSubmit }) => {
   const [name, setName] = useState("");
-  const [games, setGames] = useState(0);
+  let [games, setGames] = useState(0);
   const [sets, setSets] = useState(0);
   const [name1, setName1] = useState("");
   const [games1, setGames1] = useState(0);
@@ -35,13 +35,14 @@ const CreateMatchForm = ({ onSubmit }) => {
         games={games}
         name={name}
         sets={sets}
-        onIncreaseGames={() => setGames(games + 1)}
-        onDecreaseGames={() => setGames(games - 1)}
+        onIncreaseGames={() => setGames(games<7? games  + 1: games = 0)}
+        //added to prevent negative points
+        onDecreaseGames={() => setGames(games>0? games - 1: games = 7)}
         onIncreaseSets={() => setSets(sets + 1)}
-        onDecreaseSets={() => setSets(sets - 1)}
+        onDecreaseSets={() => setSets(sets>0? sets - 1: sets = 0)}
         textInput={text => setName(text)}
       />
-      <Player
+      {/* <Player
         games={games1}
         name={name1}
         sets={sets1}
@@ -50,7 +51,7 @@ const CreateMatchForm = ({ onSubmit }) => {
         onIncreaseSets={() => setSets1(sets1 + 1)}
         onDecreaseSets={() => setSets1(sets1 - 1)}
         textInput={text => setName1(text)}
-      />
+      /> */}
 
       <Button title={"Save Post"} onPress={() => onSubmit({name,name1})} />
     </View>
