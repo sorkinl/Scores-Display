@@ -29,6 +29,7 @@ const CreateMatchForm = ({ onSubmit }) => {
   get the props from the players. Then pass an ID with the Match component to flatlist. I think that's the 
   best way.
   */ 
+ //d
   return (
     <View>
       <Player
