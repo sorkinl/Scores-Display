@@ -9,9 +9,9 @@ const ViewScreen = ({ navigation }) => {
     <View>
       <FlatList
         data={state}
-        keyExtractor={score => score.title}
+        keyExtractor={score => score.id}
         renderItem={({ item }) => {
-          return <Text>{item.title}</Text>;
+          return (<Text>{item.id}</Text>);
         }}
       />
       <Button

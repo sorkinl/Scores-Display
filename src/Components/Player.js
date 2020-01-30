@@ -3,7 +3,9 @@ import { View, StyleSheet, Text, TextInput } from "react-native";
 import Plus from 'react-native-vector-icons/AntDesign';
 
 
-const Player = ({name,games,sets,onIncreaseGames, onDecreaseGames,textInput}) => {
+const Player = ({name,games,sets,onIncreaseGames, onDecreaseGames,onIncreaseSets,onDecreaseSets,textInput}) => {
+
+  
     
   return (
     <View>
@@ -13,9 +15,12 @@ const Player = ({name,games,sets,onIncreaseGames, onDecreaseGames,textInput}) =>
         value={name}
         onChangeText={textInput}
       />
-      <Plus.Button name="plus" onPress={() => onIncrease()} />
+      <Plus.Button name="plus" onPress={() => onIncreaseGames()} />
       <Text>{games}</Text>
-      <Plus.Button name="minus" onPress={() => onDecrease()} />
+      <Plus.Button name="minus" onPress={() => onDecreaseGames()} />
+      <Plus.Button name="plus" onPress={() => onIncreaseSets()} />
+      <Text>{sets}</Text>
+      <Plus.Button name="minus" onPress={() => onDecreaseSets()} />
     </View>
   );
 };
