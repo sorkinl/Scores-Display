@@ -11,7 +11,7 @@ import Player from "./Player";
 
 const CreateMatchForm = ({ onSubmit }) => {
   const [name, setName] = useState("");
-  let [games, setGames] = useState(0);
+  const [games, setGames] = useState(0);
   const [sets, setSets] = useState(0);
   const [name1, setName1] = useState("");
   const [games1, setGames1] = useState(0);
@@ -37,11 +37,11 @@ const CreateMatchForm = ({ onSubmit }) => {
         games={games}
         name={name}
         sets={sets}
-        onIncreaseGames={() => setGames(games<7? games  + 1: games = 0)}
+        onIncreaseGames={() => setGames(games<7? games  + 1: 0)}
         //added to prevent negative points
-        onDecreaseGames={() => setGames(games>0? games - 1: games = 7)}
-        onIncreaseSets={() => setSets(sets + 1)}
-        onDecreaseSets={() => setSets(sets>0? sets - 1: sets = 0)}
+        onDecreaseGames={() => setGames(games>0? games - 1: 7)}
+        onIncreaseSets={() => setSets(sets<7? games  + 1: 0)}
+        onDecreaseSets={() => setSets(sets>0? sets - 1: 7)}
         textInput={text => setName(text)}
       />
       {/* <Player
