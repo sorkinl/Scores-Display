@@ -4,7 +4,6 @@ import { Context } from "../context/ScoresContext";
 
 const ViewScreen = ({ navigation }) => {
   const { state } = useContext(Context);
-  console.log(state);
   return (
     <View>
       <FlatList

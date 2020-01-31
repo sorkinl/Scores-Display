@@ -8,6 +8,7 @@ import {
   TouchableOpacity
 } from "react-native";
 import Player from "./Player";
+import DisplayMatch from "./DisplayMatch";
 
 //raph
 const CreateMatchForm = ({ onSubmit }) => {
@@ -35,9 +36,6 @@ const CreateMatchForm = ({ onSubmit }) => {
   return (
    
     <View>
-      <Button title={"haha"} onPress={() => console.log("hi")} />
-
-
       <Player
         games={games}
         name={name}
@@ -60,7 +58,8 @@ const CreateMatchForm = ({ onSubmit }) => {
         textInput={text => setName1(text)}
       />
 
-      <Button title={"Save Post"} onPress={() => onSubmit()} />
+      <Button title={"Save Post"} onPress={() => onSubmit({games, name, sets, games1,name1,sets1})} />
+      <DisplayMatch />
     </View>
   );
 };
