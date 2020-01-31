@@ -12,7 +12,7 @@ return(
         data={state}
         keyExtractor={score => score.id}
         renderItem={({ item }) => {
-          return (<Text>{item.name}</Text>);
+          return (<Text>{item.name} - {item.name1}</Text>);
         }}
       />
     </View>
