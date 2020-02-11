@@ -31,8 +31,13 @@ const CreateMatchForm = ({ onSubmit }) => {
   get the props from the players. Then pass an ID with the Match component to flatlist. I think that's the 
   best way.
   */ 
- //d
- //d2
+ const guidGenerator = () => {
+    const S4 = () => {
+      return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+   };
+   return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
+}
+  let id  = guidGenerator();
   return (
    
     <View>
@@ -43,23 +48,23 @@ const CreateMatchForm = ({ onSubmit }) => {
         onIncreaseGames={() => setGames(games<7? games  + 1: 0)}
         //added to prevent negative points
         onDecreaseGames={() => setGames(games>0? games - 1: 7)}
-        onIncreaseSets={() => setSets(sets<7? games  + 1: 0)}
-        onDecreaseSets={() => setSets(sets>0? sets - 1: 7)}
+        onIncreaseSets={() => setSets(sets<3? sets  + 1: 0)}
+        onDecreaseSets={() => setSets(sets>0? sets - 1: 3)}
         textInput={text => setName(text)}
       />
       <Player
         games={games1}
         name={name1}
         sets={sets1}
-        onIncreaseGames={() => setGames1(games1 + 1)}
-        onDecreaseGames={() => setGames1(games1 - 1)}
-        onIncreaseSets={() => setSets1(sets1 + 1)}
-        onDecreaseSets={() => setSets1(sets1 - 1)}
+        onIncreaseGames={() => setGames1(games1<7?games1 + 1:0)}
+        onDecreaseGames={() => setGames1(games1>0?games1 - 1:7)}
+        onIncreaseSets={() => setSets1(sets1<3?sets1 + 1:0)}
+        onDecreaseSets={() => setSets1(sets1>0?sets1 - 1:3)}
         textInput={text => setName1(text)}
       />
 
-      <Button title={"Save Post"} onPress={() => onSubmit({games, name, sets, games1,name1,sets1})} />
-      <DisplayMatch />
+      <Button title={"Save Post"} onPress={() => onSubmit({id,name,games, sets, name1,games1,sets1})} />
+      
     </View>
   );
 };
