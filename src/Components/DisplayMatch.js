@@ -6,6 +6,7 @@ const DisplayMatch = () => {
 // Display a component that will show 2 players and score between them, that takes its info 
 //from submit function in creatematchform
 const { state } = useContext(Context);
+const { deleteMatch } = useContext(Context);
 console.log(state);
 return(
     <View>
@@ -16,7 +17,7 @@ return(
           return (
           <View style={styles.row}>
             <Text style={styles.title}>{item.name} - {item.name1}</Text>
-            <TouchableOpacity onPress={() => console.log(item.id)}>
+            <TouchableOpacity onPress={() => deleteMatch(item.id)}>
             <Feather style={styles.icon} name="trash"/>
             </TouchableOpacity>
           </View>
