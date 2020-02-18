@@ -1,18 +1,12 @@
-import React, { useContext } from "react";
-import { View, StyleSheet, Text, FlatList, Button } from "react-native";
-import { Context } from "../context/ScoresContext";
+import React from "react";
+import { View, StyleSheet, Text, FlatList, Button, } from "react-native";
+import DisplayMatch from "../Components/DisplayMatch";
 
-const ViewScreen = ({ navigation }) => {
-  const { state } = useContext(Context);
+const ViewScreen = ({navigation}) => {
+  
   return (
     <View>
-      <FlatList
-        data={state}
-        keyExtractor={score => score.id}
-        renderItem={({ item }) => {
-          return (<Text>{item.id}</Text>);
-        }}
-      />
+        <DisplayMatch navigation={navigation}/>
       <Button
         title="SignedIn"
         onPress={() => navigation.navigate("SignedIn")}
