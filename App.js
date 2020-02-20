@@ -6,12 +6,14 @@ import { Provider } from './src/context/ScoresContext';
 import SignedInView from "./src/screens/SignedInView";
 import ShowScreen from './src/screens/ShowScreen';
 import CreateScreen from "./src/screens/CreateScreen";
+import EditScreen from "./src/screens/EditScreen";
 const navigator = createStackNavigator(
   {
     View: ViewScreen,
     SignedIn: SignedInView,
     Show: ShowScreen,
-    Create: CreateScreen
+    Create: CreateScreen,
+    Edit: EditScreen
   },
   {
     initialRouteName: "View",

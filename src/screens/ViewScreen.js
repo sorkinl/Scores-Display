@@ -6,9 +6,9 @@ const ViewScreen = ({navigation}) => {
   
   return (
     <View>
-        <DisplayMatch navigation={navigation}/>
+        <DisplayMatch onSubmit={(id) => {navigation.navigate('Show',id)}} navigation={navigation}/>
       <Button
-        title="SignedIn"
+        title="Sign In"
         onPress={() => navigation.navigate("SignedIn")}
       ></Button>
     </View>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   View,
   Text,
@@ -9,16 +9,16 @@ import {
 } from "react-native";
 import Player from "./Player";
 import DisplayMatch from "./DisplayMatch";
+import Context from '../context/ScoresContext';
 
 //raph
-const CreateMatchForm = ({ onSubmit }) => {
-  const [name, setName] = useState("");
-  const [games, setGames] = useState(0);
-  const [sets, setSets] = useState(0);
-  const [name1, setName1] = useState("");
-  const [games1, setGames1] = useState(0);
-  const [sets1, setSets1] = useState(0);
-  
+const CreateMatchForm = ({ onSubmit, initialValues }) => {
+  const [name, setName] = useState(initialValues.name);
+  const [games, setGames] = useState(initialValues.games);
+  const [sets, setSets] = useState(initialValues.sets);
+  const [name1, setName1] = useState(initialValues.name1);
+  const [games1, setGames1] = useState(initialValues.games1);
+  const [sets1, setSets1] = useState(initialValues.sets1);
 
   /*
   Add an image of a player as a prop when styling
@@ -31,13 +31,7 @@ const CreateMatchForm = ({ onSubmit }) => {
   get the props from the players. Then pass an ID with the Match component to flatlist. I think that's the 
   best way.
   */ 
- const guidGenerator = () => {
-    const S4 = () => {
-      return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
-   };
-   return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
-}
-  let id  = guidGenerator();
+ 
   return (
    
     <View>
@@ -63,10 +57,20 @@ const CreateMatchForm = ({ onSubmit }) => {
         textInput={text => setName1(text)}
       />
 
-      <Button title={"Save Post"} onPress={() => onSubmit({id,name,games, sets, name1,games1,sets1})} />
+      <Button title={"Save Post"} onPress={() => onSubmit({name,games, sets, name1,games1,sets1})} />
       
     </View>
   );
+};
+CreateMatchForm.defaultProps = {
+  initialValues: {
+    name: '',
+    name1: '',
+    games: 0,
+    games1: 0,
+    sets: 0,
+    sets1: 0
+  }
 };
 
 const styles = StyleSheet.create({

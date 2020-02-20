@@ -9,12 +9,13 @@ import {
 import { Context } from "../context/ScoresContext";
 import { Feather } from "react-native-vector-icons";
 import { useNavigation } from 'react-navigation-hooks';
-const DisplayMatch = () => {
+const DisplayMatch = ({onSubmit}) => {
   // Display a component that will show 2 players and score between them, that takes its info
   //from submit function in creatematchform
   const { state } = useContext(Context);
   const { deleteMatch } = useContext(Context);
   const navigation = useNavigation();
+  console.log(state);
   return (
     <View>
       <FlatList
@@ -23,11 +24,11 @@ const DisplayMatch = () => {
         renderItem={({ item }) => {
           return (
             <TouchableOpacity
-              onPress={() => navigation.navigate("Show", { id: item.id })}
+              onPress={() => onSubmit( {id:item.id} )}
             >
               <View style={styles.row}>
                 <Text style={styles.title}>
-                  {item.name} - {item.name1}
+                  {item.match.name} - {item.match.name1}
                 </Text>
                 <TouchableOpacity onPress={() => deleteMatch(item.id)}>
                   <Feather style={styles.icon} name="trash" />
