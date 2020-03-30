@@ -6,12 +6,29 @@ const ShowScreen = ({navigation}) => {
     const { state } = useContext(Context);
     const match = state.find((match)=> match.id === navigation.getParam('id'));
     return (
-        <View>
-            <Text>{match.id}</Text>
+        <>
+        <View style={styles.scoreContainer}>
+            <Text>{match.match.name} - {match.match.games}</Text>
+            
         </View>
+        <View style={styles.scoreContainer}>
+            <Text>{match.match.name1} - {match.match.games1}</Text>
+        </View>
+        </>
     )
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+    scoreContainer: {
+        width: '100%',
+        height: '44vh',
+        borderWidth: 5,
+        borderColor: 'red',
+        flexDirection: "row",
+        justifyContent: "space-between",
+        paddingVertical: 20,
+        paddingHorizontal: 50,
+    }
+});
 
 export default ShowScreen;

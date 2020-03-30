@@ -1,7 +1,7 @@
 import React from "react";
-import { View, StyleSheet, Text, FlatList, Button, } from "react-native";
+import { View, StyleSheet, Text, FlatList } from "react-native";
 import DisplayMatch from "../Components/DisplayMatch";
-
+import { Button } from 'react-native-elements'
 const ViewScreen = ({navigation}) => {
   
   return (
@@ -9,7 +9,7 @@ const ViewScreen = ({navigation}) => {
         <DisplayMatch onSubmit={(id) => {navigation.navigate('Show',id)}} navigation={navigation}/>
       <Button
         title="Sign In"
-        onPress={() => navigation.navigate("SignedIn")}
+        onPress={() => navigation.navigate("Signin")}
       ></Button>
     </View>
   );

@@ -1,8 +1,7 @@
 import React, {useState} from "react";
-import { View, StyleSheet, Text, TextInput } from "react-native";
+import { View, StyleSheet, TextInput } from "react-native";
 import Plus from 'react-native-vector-icons/AntDesign';
-
-
+import { Divider, Text} from 'react-native-elements';
 const Player = ({name,games,sets,onIncreaseGames, onDecreaseGames,onIncreaseSets,onDecreaseSets,textInput}) => {
 
   

@@ -4,13 +4,12 @@ import {
   Text,
   StyleSheet,
   TextInput,
-  Button,
   TouchableOpacity
 } from "react-native";
 import Player from "./Player";
 import DisplayMatch from "./DisplayMatch";
 import Context from '../context/ScoresContext';
-
+import { Button } from 'react-native-elements'
 //raph
 const CreateMatchForm = ({ onSubmit, initialValues }) => {
   const [name, setName] = useState(initialValues.name);
