@@ -91,7 +91,6 @@ const signout = dispatch => {
 export const { Context, Provider } = createDataContext(
   scoresReducer,
   { createMatch, deleteMatch, editMatch, signin, signout },
-  { token: null, errorMessage: "" },
   [
     {
       id: "ae13fd06-ad1d-27b3-987d-98d32a8b7a93",

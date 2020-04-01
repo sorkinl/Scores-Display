@@ -1,10 +1,10 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import  { View, StyleSheet } from 'react-native';
 import { Text, Input, Button} from 'react-native-elements';
 import Spacer from '../Components/Spacer';
-import { Context as ScoresContext } from '../context/ScoresContext';
+import { Context as AuthContext } from '../context/AuthContext';
 const SigninScreen = () => {
-    const { state, signin } = useContext(ScoresContext);
+    const { state, signin, tryLocalSignin } = useContext(AuthContext);
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
 

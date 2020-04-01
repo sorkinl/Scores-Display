@@ -20,8 +20,8 @@ const ShowScreen = ({navigation}) => {
 
 const styles = StyleSheet.create({
     scoreContainer: {
+        marginTop: 100,
         width: '100%',
-        height: '44vh',
         borderWidth: 5,
         borderColor: 'red',
         flexDirection: "row",

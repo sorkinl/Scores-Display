@@ -22,5 +22,5 @@ export default (reducer, actions, initialState) => {
 
     };
 
-    return { Context, Provider };
+    return { Context: Context, Provider: Provider };
 };
