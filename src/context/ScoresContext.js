@@ -24,6 +24,8 @@ const guidGenerator = () => {
 let id = guidGenerator();
 const scoresReducer = (state, action) => {
   switch (action.type) {
+    case "get_matches":
+      return action.payload;
     case "create_match":
       return [
         ...state,
@@ -47,6 +49,14 @@ const scoresReducer = (state, action) => {
   }
 };
 
+
+const getMatches = dispatch => {
+  return async () => {
+    const response = await trackerApi.get('/matches');
+    dispatch({type: 'get_matches' ,payload: response.data});
+  }
+}
+
 const createMatch = dispatch => {
   return (match, callback) => {
     dispatch({ type: "create_match", payload: match });
@@ -65,43 +75,10 @@ const deleteMatch = dispatch => {
   };
 };
 
-const signin = dispatch => async ({ login, password }) => {
-  // make api request to express
-  //if we sign in, modify the state to true
-  try {
-    const response = await trackerApi.post("/signin", { login, password });
-    await AsyncStorage.setItem('token', response.data.token);
-    dispatch({ type: "signin", payload: response.data.token });
-    console.log(response.data)
-    navigate('SignedIn');
-  } catch (err) {
-    dispatch({
-      type: "add_error",
-      payload: "Something went wrong with sign in"
-    });
-  }
-};
-const signout = dispatch => {
-  return () => {
-    // make api request to express
-    //if we sign in, modify the state to true
-  };
-};
+
 
 export const { Context, Provider } = createDataContext(
   scoresReducer,
-  { createMatch, deleteMatch, editMatch, signin, signout },
-  [
-    {
-      id: "ae13fd06-ad1d-27b3-987d-98d32a8b7a93",
-      match: {
-        name: "Test",
-        games: 3,
-        sets: 0,
-        name1: "Test2",
-        games1: 1,
-        sets1: 0
-      }
-    }
-  ]
+  { createMatch, deleteMatch, editMatch, getMatches },
+  []
 );
