@@ -5,11 +5,7 @@ import { Button } from 'react-native-elements'
 import { Context as ScoresContext} from '../context/ScoresContext';
 
 const ViewScreen = ({navigation}) => {
-   const {state, getMatches} = useContext(ScoresContext); 
-   useEffect(()=> {
-     const matches = getMatches();
-     console.log(matches);
-  }, []) 
+   
   return (
     <View>
         <DisplayMatch onSubmit={(id) => {navigation.navigate('Show',id)}} navigation={navigation}/>

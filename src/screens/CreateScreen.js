@@ -3,7 +3,7 @@ import {View, Text, StyleSheet } from 'react-native';
 import { Context } from '../context/ScoresContext';
 import CreateMatchForm from '../Components/CreateMatchForm';
 const CreateScreen = ({navigation}) => {
-    const {state,createMatch} = useContext(Context);
+    const {state,createMatch, getMatches} = useContext(Context);
     
     
     return (
@@ -11,7 +11,8 @@ const CreateScreen = ({navigation}) => {
             <CreateMatchForm 
             onSubmit={(match) => {
             createMatch(match, () => {
-                navigation.navigate('SignedIn');
+                navigation.navigate('SignedIn')
+                getMatches();
             });
         }}/>
         </View>

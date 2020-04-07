@@ -58,9 +58,10 @@ const getMatches = dispatch => {
 }
 
 const createMatch = dispatch => {
-  return (match, callback) => {
-    dispatch({ type: "create_match", payload: match });
-    callback();
+  return async (match, callback) => {
+    const response = await trackerApi.post('/matches', {match});
+    //dispatch({ type: "create_match", payload: match });
+    callback(); 
   };
 };
 const editMatch = dispatch => {
@@ -70,7 +71,8 @@ const editMatch = dispatch => {
   };
 };
 const deleteMatch = dispatch => {
-  return id => {
+  return async id => {
+    await trackerApi.delete('/matches/:id', {_id:id})
     dispatch({ type: "delete_match", payload: id });
   };
 };
