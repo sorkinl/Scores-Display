@@ -65,8 +65,9 @@ const createMatch = dispatch => {
   };
 };
 const editMatch = dispatch => {
-  return (id, match, callback) => {
-    dispatch({ type: "edit_match", payload: { id: id, match } });
+  return async (id, match, callback) => {
+    /* dispatch({ type: "edit_match", payload: { id: id, match } }); */
+    const response = await trackerApi.patch(`/matches/${id}`, {match});
     callback();
   };
 };

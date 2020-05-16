@@ -6,7 +6,7 @@ const EditScreen = ({navigation}) => {
     const id = navigation.getParam('id');
     const {state,editMatch} = useContext(Context);
     const match = state.find(
-        match => match.id === id
+        match => match._id === id
     );
     console.log(match);
     return (
