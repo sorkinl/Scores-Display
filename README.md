@@ -5,3 +5,5 @@ An early stage of an app to display match scores of Dickinson men's tennis team.
 To start the app use `expo start`
 
 Scores Display uses a custom Express API to connect to MongoDB.  https://github.com/sorkinl/Scores-server
+
+<img src="Screenshot_20200516_001631_com.me.lolkin.jpg"  width="200" height="400" />                   <img src="Screenshot_20200516_165851_host.exp.exponent.jpg"  width="200" height="400" />               <img src="Screenshot_20200516_170009_host.exp.exponent.jpg"  width="200" height="400" />  
